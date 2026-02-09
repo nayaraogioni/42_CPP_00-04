@@ -8,7 +8,6 @@ class PhoneBook
 private:
 	Contact _contacts[8];
 	int     _contactCount;
-	int	 	_index;
 public:
 	PhoneBook();
 	void	addContact(const Contact& newContact);

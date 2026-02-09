@@ -2,14 +2,13 @@
 #include <iostream>
 #include <iomanip>
 
-PhoneBook::PhoneBook() : _contactCount(0), _index(0) {}
+PhoneBook::PhoneBook() : _contactCount(0) {}
 
 void PhoneBook::addContact(const Contact& newContact)
 {
-	_contacts[_index] = newContact;
-	_index = (_index + 1) % 8;
 	if (_contactCount < 8)
 	{
+		_contacts[_contactCount] = newContact;
 		_contactCount++;
 	}
 }
@@ -26,7 +25,7 @@ void PhoneBook::displayContacts() const
 	std::cout << "---------------------------------------------" << std::endl;
 	for (int i = 0; i < _contactCount; i++)
 	{
-		std::cout << std::setw(5) << (i + 1) << " | "
+		std::cout << std::setw(5) << i << " | "
 				  << std::setw(10) << formatField(_contacts[i].get_first_name()) << " | "
 				  << std::setw(10) << formatField(_contacts[i].get_last_name()) << " | "
 				  << std::setw(10) << formatField(_contacts[i].get_nickname()) << std::endl;
@@ -35,15 +34,15 @@ void PhoneBook::displayContacts() const
 
 void PhoneBook::displayContactDetails(int index) const
 {
-	if (index < 1 || index > _contactCount)
+	if (index < 0 || index >= _contactCount)
 	{
 		std::cout << "Invalid index." << std::endl;
 		return;
 	}
-	const Contact& c = _contacts[index - 1];
-	std::cout << "First Name: " << c.get_first_name() << std::endl;
-	std::cout << "Last Name: " << c.get_last_name() << std::endl;
-	std::cout << "Nickname: " << c.get_nickname() << std::endl;
-	std::cout << "Phone Number: " << c.get_phone_number() << std::endl;
-	std::cout << "Darkest Secret: " << c.get_darkest_secret() << std::endl;
+	const Contact& contact = _contacts[index];
+	std::cout << "First Name: " << contact.get_first_name() << std::endl;
+	std::cout << "Last Name: " << contact.get_last_name() << std::endl;
+	std::cout << "Nickname: " << contact.get_nickname() << std::endl;
+	std::cout << "Phone Number: " << contact.get_phone_number() << std::endl;
+	std::cout << "Darkest Secret: " << contact.get_darkest_secret() << std::endl;
 }
