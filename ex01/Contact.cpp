@@ -1,7 +1,5 @@
 #include "Contact.hpp"
 
-#include <iostream>
-
 //--------------------------------------------------
 // Constructor -> initialization of the data members
 //--------------------------------------------------

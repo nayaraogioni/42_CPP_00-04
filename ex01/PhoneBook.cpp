@@ -22,11 +22,11 @@ static std::string formatField(const std::string& str)
 
 void PhoneBook::displayContacts() const
 {
-	std::cout << "Index | First Name | Last Name  | Nickname  " << std::endl;
-	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << "   Index   | First Name | Last Name |  Nickname " << std::endl;
+	std::cout << "------------------------------------------------" << std::endl;
 	for (int i = 0; i < _contactCount; i++)
 	{
-		std::cout << std::setw(5) << (i + 1) << " | "
+		std::cout << std::setw(10) << (i + 1) << " | "
 				  << std::setw(10) << formatField(_contacts[i].get_first_name()) << " | "
 				  << std::setw(10) << formatField(_contacts[i].get_last_name()) << " | "
 				  << std::setw(10) << formatField(_contacts[i].get_nickname()) << std::endl;
