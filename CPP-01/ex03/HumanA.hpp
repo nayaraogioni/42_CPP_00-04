@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 18:29:36 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/11 18:29:37 by nogioni-         ###   ########.fr       */
+/*   Created: 2026/02/11 18:31:30 by nogioni-          #+#    #+#             */
+/*   Updated: 2026/02/11 18:37:12 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 #include <string>
-#include <iostream>
 
-int	main(void)
+class	HumanA
 {
-	Zombie* z = newZombie("Feio");
-	z->announce();
-	delete z;
-	randomChump("Bonito");
-	return 0;
-}
+	private:
+		std::string name;
+		Weapon& weapon;
+	public:
+		HumanA(std::string name, Weapon& weapon);
+		void	attack(void);
+};
+
+#endif

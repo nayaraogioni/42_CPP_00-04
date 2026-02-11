@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 18:29:36 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/11 18:29:37 by nogioni-         ###   ########.fr       */
+/*   Created: 2026/02/11 18:31:46 by nogioni-          #+#    #+#             */
+/*   Updated: 2026/02/11 19:20:07 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Weapon.hpp"
 
+Weapon::Weapon(std::string defaultType) : type(defaultType) {}
 
-#include "Zombie.hpp"
-#include <string>
-#include <iostream>
-
-int	main(void)
+const   std::string&	Weapon::getType() const
 {
-	Zombie* z = newZombie("Feio");
-	z->announce();
-	delete z;
-	randomChump("Bonito");
-	return 0;
+    return type;
+}
+
+void    Weapon::setType(std::string newType)
+{
+    type = newType;
 }

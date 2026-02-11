@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 18:30:12 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/11 18:30:14 by nogioni-         ###   ########.fr       */
+/*   Created: 2026/02/11 18:31:33 by nogioni-          #+#    #+#             */
+/*   Updated: 2026/02/11 19:14:57 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 #include <iostream>
+#include <cstddef>
 
-/*
-Inicializa o atributo this->name
-com o valor que veio no parâmetro name
-*/
-Zombie::Zombie(std::string name) : name(name) {}
+HumanB::HumanB(std::string name) : name(name), weapon(NULL) {}
 
-Zombie::~Zombie() { std::cout << name << " morreu\n"; }
-
-void	Zombie::announce(void)
+void	HumanB::setWeapon(Weapon& w)
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    weapon = &w;
+}
+
+void	HumanB::attack()
+{
+	if (weapon)
+        std::cout << name << " attacks with their " 
+                  << weapon->getType() << std::endl;
+    else
+        std::cout << name << " has no weapon to attack!" 
+                  << std::endl;
 }
