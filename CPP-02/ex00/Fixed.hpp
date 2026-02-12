@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 12:57:34 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/12 13:05:32 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/02/12 13:18:54 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ class Fixed
 		static const int	_fracBits = 8;
 
 	public:
-		Fixed();
-		Fixed(const Fixed& other);
-		~Fixed();
+		Fixed(); // Default constructor
+		Fixed(const Fixed& other); // Copy constructor
+		~Fixed(); // Destructor
 
-		Fixed& operator=(const Fixed& o);
+		Fixed& operator=(const Fixed& o); // Copy assignment operator
 
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		int		getRawBits(void) const; // Returns the raw value of the fixed-point number
+		void	setRawBits(int const raw); // Sets the raw value of the fixed-point number
 };
 
 #endif
