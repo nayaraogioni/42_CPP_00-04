@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FileReplacer.hpp                                   :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 11:13:09 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/12 11:47:52 by nogioni-         ###   ########.fr       */
+/*   Created: 2026/02/12 12:28:49 by nogioni-          #+#    #+#             */
+/*   Updated: 2026/02/12 12:41:53 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILEREPLACER_HPP
-# define FILEREPLACER_HPP
+#include "Harl.hpp"
 
-#include <string>
-#include <iostream>
-#include <fstream>
-
-class FileReplacer
+int main(void)
 {
-    private:
-        std::string _fileName;
-        std::string _s1;
-        std::string _s2;
-    public:
-        FileReplacer(std::string fileName, std::string s1, std::string s2);
-        void	replaceInFile();
-};
+    Harl harl;
 
-#endif
-
+    harl.complain("DEBUG");
+    harl.complain("INFO");
+    harl.complain("WARNING");
+    harl.complain("ERROR");
+    harl.complain("Probably complaining about insignificant problems.");
+    
+    return 0;
+}

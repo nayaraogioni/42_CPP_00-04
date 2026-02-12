@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:31:40 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/11 19:16:23 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/02/12 12:41:12 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-int main()
+int main(void)
 {
    {
         Weapon club = Weapon("crude spiked club");
@@ -34,4 +34,5 @@ int main()
         club.setType("some other type of club");
         jim.attack();
     }
+        return 0;
 }

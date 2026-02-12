@@ -1,14 +1,13 @@
-NAME = ex04
+NAME = ex05
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp \
-	   FileReplacer.cpp
+	   Harl.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS = FileReplacer.hpp
-
+HEADERS = Harl.hpp
 all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)

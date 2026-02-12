@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FileReplacer.hpp                                   :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 11:13:09 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/12 11:47:52 by nogioni-         ###   ########.fr       */
+/*   Created: 2026/02/12 12:14:37 by nogioni-          #+#    #+#             */
+/*   Updated: 2026/02/12 12:30:45 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILEREPLACER_HPP
-# define FILEREPLACER_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
-#include <string>
 #include <iostream>
-#include <fstream>
+#include <string>
 
-class FileReplacer
+class Harl
 {
-    private:
-        std::string _fileName;
-        std::string _s1;
-        std::string _s2;
-    public:
-        FileReplacer(std::string fileName, std::string s1, std::string s2);
-        void	replaceInFile();
+	private:
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
+	public:
+		void complain(std::string level); 
 };
 
 #endif
-
