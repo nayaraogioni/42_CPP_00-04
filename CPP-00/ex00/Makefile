@@ -1,32 +1,22 @@
-# Name of the executable
-NAME = megaphone
-
-# Compiler
+NAME = ex00
 CC = c++
-
-# Compiler flags
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-# Source files
-SRCS = megaphone.cpp
+SRCS = main.cpp \
+	   megaphone.cpp
 
-# Default target
+OBJS = $(SRCS:.cpp=.o)
+
 all: $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-# Build the executable (linking object files and creating the final program)
-$(NAME): $(SRCS)
-	$(CC) $(CFLAGS) -o $(NAME) $(SRCS)
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean up object files
 clean:
 	rm -f $(OBJS)
-
-# Clean up object files and executable
 fclean: clean
 	rm -f $(NAME)
-
-# Rebuild the project
 re: fclean all
-
-# Phony targets (do not correspond to files)
 .PHONY: all clean fclean re

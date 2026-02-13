@@ -1,4 +1,4 @@
-NAME = PhoneBook
+NAME = ex01
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -10,10 +10,14 @@ OBJS = $(SRCS:.cpp=.o)
 
 HEADERS = Contact.hpp \
 		  PhoneBook.hpp
-		  
+
 all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	rm -f $(OBJS)
 fclean: clean
