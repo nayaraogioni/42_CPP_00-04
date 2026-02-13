@@ -6,22 +6,92 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:45:33 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/12 13:46:00 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/02/13 12:50:15 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main( void )
+#include <iostream>
+#include "Fixed.hpp"
+
+void tests()
 {
+    std::cout << "\n Other tests\n"
+              << std::endl;
+    Fixed a(2);
+    Fixed *b = new Fixed(10);
+    Fixed c = a * *b;
+
+    std::cout << "a is : " << a << std::endl;
+    std::cout << "b is : " << *b << std::endl;
+    std::cout << "c(a * b) is : " << c << std::endl;
+
+    std::cout << "\n============ Testing Comparisons ============" << std::endl;
+    std::cout << "a is : " << a << " b is : " << *b << std::endl;
+    std::cout << "max is = " << Fixed::max(a, *b) << std::endl;
+    std::cout << "min is = " << Fixed::min(a, *b) << std::endl;
+    std::cout << "(a < *b) => " << (a < *b) << std::endl;
+    std::cout << "(a <= *b) => " << (a <= *b) << std::endl;
+    std::cout << "(a > *b) => " << (a > *b) << std::endl;
+    std::cout << "(a >= *b) => " << (a >= *b) << std::endl;
+    std::cout << "(a == *b) => " << (a == *b) << std::endl;
+    std::cout << "(a != *b) => " << (a != *b) << std::endl;
+
+    std::cout << "\n============ Testing Operations ============" << std::endl;
+    std::cout << "(a + *b) => " << (a + *b) << std::endl;
+    std::cout << "(a - *b) => " << (a - *b) << std::endl;
+    std::cout << "\n(++a)" << std::endl;
+    std::cout << "before => " << a << " - " << a.getRawBits() << "\nafter =>  " << ++a << " - " << a.getRawBits() << std::endl;
+    std::cout << "(a++)" << std::endl;
+    std::cout << "before => " << a << " - " << a.getRawBits() << std::endl;
+    Fixed old = a++;
+    std::cout << "after =>  " << old << " - " << old.getRawBits() << std::endl;
+    std::cout << "next line a value is => " << a << std::endl;
+
+    std::cout << "\n(--a)" << std::endl;
+    std::cout << "before => " << a << " - " << a.getRawBits() << "\nafter =>  " << --a << " - " << a.getRawBits() << std::endl;
+    std::cout << "(a--)" << std::endl;
+    std::cout << "before => " << a << " - " << a.getRawBits() << "\nafter =>  " << a-- << " - " << a.getRawBits() << std::endl;
+    std::cout << "next line a value is => " << a << std::endl;
+
+    std::cout << "\n(a * *b) => " << (a * *b) << std::endl;
+    std::cout << "(a / *b) => " << (a / *b) << std::endl;
+    std::cout << "(*b / a) => " << (*b / a) << std::endl;
+    delete b;
+}
+
+int main(void)
+{
+    // tests in the subject
     Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed const b(Fixed(5.05f) * Fixed(2));
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;
     std::cout << a << std::endl;
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
     std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << Fixed::max(a, b) << std::endl;
+    // extra tests
+     tests();
     return 0;
 }
+
+/* int main( void )
+{
+    Fixed a;
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
+    
+    std::cout << b << std::endl;
+    
+    std::cout << Fixed::max( a, b ) << std::endl;
+    
+    return 0;
+} */

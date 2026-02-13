@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:46:45 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/12 14:20:20 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/02/13 11:19:01 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,25 +76,29 @@ Fixed   Fixed::operator/(const Fixed &other) const
     INCREMENT/DECREMENT OPERATORS
 ------------------------------------------------------------*/
 
+// pre-increment (++a): increments the fixed-point value and returns the updated object
 Fixed& Fixed::operator++()
 {
     this->_fixedPointValue++;
     return *this;
 }
 
+// post-increment (a++)
 Fixed   Fixed::operator++(int)
 {
-    Fixed temp(*this);
-    this->_fixedPointValue++;
-    return temp;
+    Fixed temp(*this); // saves the current state of the object before incrementing
+    this->_fixedPointValue++; // increments the fixed-point value
+    return temp; // returns the original value (before the increment)
 }
 
+// pre-decrement (--a)
 Fixed& Fixed::operator--()
 {
     this->_fixedPointValue--;
     return *this;
 }
 
+// post-decrement (a--)
 Fixed   Fixed::operator--(int)
 {
     Fixed temp(*this);
@@ -104,10 +108,14 @@ Fixed   Fixed::operator--(int)
 
 /*-----------------------------------------------------------
     MIN/MAX FUNCTIONS
+    in this case we have 2 versions (const and non-const)
+    of each function, so we can use them with both const
+    and non-const objects.
 ------------------------------------------------------------*/
 
 Fixed&       Fixed::min(Fixed &a, Fixed &b)
 {
+    // if a < b returns a, otherwise returns b
     return (a < b) ? a : b;
 }
 
@@ -137,7 +145,7 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 }
 
 /*-----------------------------------------------------------
-    CONSTRUTOR AND DESTRUCTOR
+    CONSTRUTORS AND DESTRUCTOR
 --------------------------------------------------------------*/
 
 Fixed::Fixed() : _fixedPointValue(0)

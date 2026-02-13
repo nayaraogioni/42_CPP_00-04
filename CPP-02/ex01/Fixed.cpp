@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:24:53 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/12 13:42:19 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/02/12 20:48:38 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Fixed::Fixed(int const intValue) : _fixedPointValue(intValue << _fracBits)
 }
 
 // Constructor that takes a floating-point value and converts it to fixed-point
-Fixed::Fixed(float const floatValue) : _fixedPointValue((int)(floatValue * (1 << _fracBits)))
+Fixed::Fixed(float const floatValue) : _fixedPointValue(roundf(floatValue * (1 << _fracBits)))
 {
     std::cout << "Float constructor called" << std::endl;
 }
@@ -38,6 +38,7 @@ Fixed::Fixed(float const floatValue) : _fixedPointValue((int)(floatValue * (1 <<
 Fixed::Fixed(const Fixed& other) : _fixedPointValue(other._fixedPointValue)
 {
     std::cout << "Copy constructor called" << std::endl;
+    *this = other;
 }
 
 // Destructor
