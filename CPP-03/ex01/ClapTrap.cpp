@@ -6,23 +6,27 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 10:25:55 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/14 14:15:40 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/02/14 15:36:37 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(const std::string& name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name) {
-	std::cout << "Copy constructor called" << std::endl;
-	*this = other;
+ClapTrap::ClapTrap(const ClapTrap &other)
+										: _name(other._name),
+										_hitPoints(other._hitPoints),
+										_energyPoints(other._energyPoints),
+										_attackDamage(other._attackDamage)
+{
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target)
@@ -76,7 +80,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "ClapTrap copy assignment operator called" << std::endl;
     if (this != &other)
 	{
 		this->_name = other._name;
