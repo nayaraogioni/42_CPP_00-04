@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 13:11:40 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/16 14:50:39 by nogioni-         ###   ########.fr       */
+/*   Created: 2026/02/16 11:59:13 by nogioni-          #+#    #+#             */
+/*   Updated: 2026/02/16 15:42:59 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-#include "Animal.hpp"
+#include <string>
+#include <iostream>
 
-class Cat : public Animal
+class Animal
 {
-	private:
-
+	protected:
+		std::string type;
 	public:
-		Cat();
-		Cat(const Cat& other);
-		Cat& operator=(const Cat& other);
-		~Cat();
-
-		void makeSound() const;
+		Animal();
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual ~Animal(); 
+		
+		virtual void	makeSound() const = 0; // pure virtual function, makes Animal an abstract class
+		std::string	getType() const;
 };
 
 #endif

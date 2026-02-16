@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 12:29:19 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/16 14:08:54 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:50:42 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Dog : public Animal
 		Dog& operator=(const Dog& other);
 		~Dog();
 
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
 #endif
