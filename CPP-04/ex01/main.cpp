@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 11:58:49 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/02/16 15:38:04 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/02/18 19:08:32 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,27 @@ void other_tests()
 	
 }
 
-int main (void)
+int main(void)
 {
 	std::cout << "========= SUBJECT TESTS =========" << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;
-	delete i;
-	std::cout << "=================================" << std::endl;
+	std::cout << "========= CREATING 50 CATS AND 50 DOGS =========" << std::endl;
+	Animal* animals[100];
+
+	for (int i = 0; i < 100; i++)
+	{
+		if (i < 50)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
 	std::cout << std::endl;
-	other_tests();
+	std::cout << "========= DELETING 50 CATS AND 50 DOGS =========" << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		delete animals[i];
+	}
+
+	std::cout << "=================================" << std::endl;
+	//other_tests();
 	return 0;
 }
